@@ -395,7 +395,19 @@ section
 	text-decoration: none;
 }
 
+.location
+{
+	display: inline-block;
+	width: 100%;
+}
 
+.location .map
+{
+	display: block;
+	width: 80%;
+	aspect-ratio: 2;
+	margin: auto;
+}
 
 /*-------- Tablet scren ------------*/
 @media screen and (max-width:  991px)
