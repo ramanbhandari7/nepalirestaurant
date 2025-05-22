@@ -2,7 +2,7 @@
 
 *
 {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins', sans-serif; /* Poppins is a great, modern choice */
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -12,126 +12,10 @@
 p
 {
 	font-weight: 300;
-	color: #111;
+	color: #111; /* Dark grey for general text, good readability */
 }
 
-.banner
-{
-	position: relative;
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: url(img/bg.jpg);
-	background-size: cover;
-}
-
-.banner .content
-{
-	max-width: 900px;
-	text-align: center;
-}
-
-.banner .content h2
-{
-	font-size: 5em;
-	color: #fff;
-	text-transform: capitalize;
-}
-
-.banner .content p
-{
-	font-size: 1em;
-	color: #fff;
-}
-
-.btn
-{
-	font-size: 1em;
-	color: #fff;
-	background: #ff0157;
-	display: inline-block;
-	padding: 10px 30px;
-	margin-top: 20px;
-	text-transform: uppercase;
-	text-decoration: none;
-	letter-spacing: 2px;
-	transition: 0.5s;
-}
-
-.btn:hover
-{
-	letter-spacing: 6px;
-}
-
-header
-{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 40px;
-	z-index: 10000;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	transition: 0.5s;
-}
-
-header.sticky
-{
-	background: #fff;
-	padding: 10px 60px;
-	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-}
-
-header .logo
-{
-	color: #fff;
-	font-weight: 700;
-	font-size: 2em;
-	text-decoration: none;
-}
-
-header.sticky .logo
-{
-	color: #111;
-}
-
-header .logo span
-{
-	color: #ff0157;
-}
-
-header .navigation
-{
-	display: flex;
-}
-
-header .navigation li
-{
-	list-style: none;
-	margin-left: 30px;
-}
-
-header .navigation li a
-{
-	text-decoration: none;
-	color: #fff;
-	font-weight: 400;
-}
-
-header.sticky .navigation li a
-{
-	color: #111;
-}
-
-header .navigation li a:hover
-{
-	color: #ff0157;
-}
-
+/* General Styles */
 section
 {
 	padding: 100px;
@@ -158,30 +42,169 @@ section
 	font-weight: 300;
 }
 
-.titleText span
+.titleText span /* This is where the accent color is used for emphasized first letters */
 {
-	color: #ff0157;
+	color: #E2725B; /* UPDATED: Was #ff0157 */
 	font-weight: 700;
 	font-size: 1.5em;
 }
 
-.imgBx img
+.imgBx img /* Ensure images within .imgBx are responsive */
 {
 	max-width: 100%;
 	width: 100%;
-	height: auto;
+	height: auto; /* Maintain aspect ratio */
+	object-fit: cover; /* Ensures images fill their containers well */
 }
 
 .title
 {
+	width: 100%; /* Ensure title div takes full width for centering */
+	text-align: center;
+	margin-bottom: 30px; /* Added some space below titles */
+}
+
+.title p {
+    color: #555; /* Slightly lighter for subtitle paragraphs */
+}
+
+
+/* Banner Section */
+.banner
+{
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url(img/nepali_banner_bg.jpg); /* SUGGESTION: Use a thematic Nepali/Qatari BG image */
+	background-size: cover;
+	background-position: center; /* Ensure the image is centered */
+}
+
+.banner .content
+{
+	max-width: 900px;
 	text-align: center;
 }
 
+.banner .content h2
+{
+	font-size: 5em;
+	color: #fff;
+	text-transform: capitalize;
+}
+
+.banner .content p
+{
+	font-size: 1em;
+	color: #fff;
+}
+
+.btn
+{
+	font-size: 1em;
+	color: #fff;
+	background: #E2725B; /* UPDATED: Was #ff0157 */
+	display: inline-block;
+	padding: 10px 30px;
+	margin-top: 20px;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 2px;
+	transition: 0.5s ease; /* Smoother transition */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+.btn:hover
+{
+	letter-spacing: 4px; /* Slightly reduced hover effect for subtlety */
+    background: #c96552; /* Darker shade on hover */
+}
+
+/* Header & Navigation */
+header
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 40px 100px; /* Original padding */
+	z-index: 10000;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: 0.5s ease;
+}
+
+header.sticky
+{
+	background: #fff;
+	padding: 15px 100px; /* Adjusted padding for sticky */
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+header .logo
+{
+	color: #fff;
+	font-weight: 700;
+	font-size: 2em;
+	text-decoration: none;
+}
+
+header.sticky .logo
+{
+	color: #111; /* Logo color changes on sticky header */
+}
+
+header .logo span /* Accent color for part of the logo */
+{
+	color: #E2725B; /* UPDATED: Was #ff0157 */
+}
+
+header .navigation
+{
+	display: flex;
+	position: relative; /* For potential dropdowns if added later */
+}
+
+header .navigation li
+{
+	list-style: none;
+	margin-left: 30px;
+}
+
+header .navigation li a
+{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 400; /* Changed from 300 to 400 for slightly better visibility */
+    transition: color 0.3s ease;
+}
+
+header.sticky .navigation li a
+{
+	color: #111;
+}
+
+header .navigation li a:hover
+{
+	color: #E2725B; /* UPDATED: Was #ff0157 */
+}
+
+/* About Us Section - (No specific color changes, uses general styles) */
+.about .row .col50 p {
+    line-height: 1.8; /* Improved readability for longer text blocks */
+    color: #333;
+}
+
+/* Menu Section */
 .menu .content
 {
 	display: flex;
 	justify-content: center;
-	flex-direction: row-reverse;
+	flex-direction: row; /* Changed from row-reverse, but this is a stylistic choice */
 	flex-wrap: wrap;
 	margin-top: 40px;
 }
@@ -190,40 +213,46 @@ section
 {
 	width: 340px;
 	margin: 20px;
-	border: 15px solid #fff;
-	box-shadow: 0 5px 35px rgba(0,0,0,0.08);
+	border: 1px solid #eee; /* Lighter border than 15px solid #fff */
+	box-shadow: 0 5px 25px rgba(0,0,0,0.05); /* Softer shadow */
+    background: #fff; /* Ensure box has a background */
+    border-radius: 8px; /* Rounded corners for menu boxes */
+    overflow: hidden; /* To contain the image within rounded corners */
 }
 
 .menu .content .box .imgBx
 {
 	position: relative;
 	width: 100%;
-	height: 300px;
+	height: 250px; /* Adjusted height slightly */
 }
 
 .menu .content .box .imgBx img
 {
-	max-width: 100%;
-	width: 100%;
-	height: 100%;
+	/* width: 100%; height: 100% is fine from .imgBx img global rule */
+	object-fit: cover;
 }
 
 .menu .content .box .text
 {
-	padding: 15px 0 5px;
+	padding: 20px; /* More padding */
+    text-align: center;
 }
 
 .menu .content .box .text h3
 {
-	font-weight: 400;
-	color: #111;
+	font-weight: 600; /* Bolder heading for menu items */
+	color: #333; /* Darker color for menu item names */
+    margin: 0; /* Remove default margin */
 }
 
-.expert .content
+/* Expert/Chefs Section */
+.expert .content /* .expert is now .chefs in HTML, adjust class name if needed */
 {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	flex-direction: row; /* Explicitly set, default is row */
 	margin-top: 40px;
 }
 
@@ -231,6 +260,10 @@ section
 {
 	width: 250px;
 	margin: 15px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
 }
 
 .expert .content .box .imgBx
@@ -242,31 +275,32 @@ section
 
 .expert .content .box .imgBx img
 {
-	max-width: 100%;
-	width: 100%;
-	height: 100%;
+	/* width: 100%; height: 100% is fine from .imgBx img global rule */
+	object-fit: cover;
 }
 
 .expert .content .box .text
 {
-	padding: 15px 0 5px;
+	padding: 15px; /* Consistent padding */
+    text-align: center;
 }
 
 .expert .content .box .text h3
 {
-	font-weight: 400;
-	color: #111;
+	font-weight: 600; /* Bolder for names */
+	color: #333;
+    margin: 0;
 }
 
-
+/* Testimonials Section */
 .testimonials
 {
-	background: url(img/bg2.jpg);
+	background: url(img/nepali_testimonial_bg.jpg) no-repeat center center; /* SUGGESTION: Use a thematic BG image */
 	background-size: cover;
 }
 
-.white .titleText,
-.white p
+.testimonials .title.white .titleText, /* More specific selector for white text */
+.testimonials .title.white p
 {
 	color: #fff;
 }
@@ -284,60 +318,72 @@ section
 {
 	width: 340px;
 	margin: 20px;
-	padding: 40px;
+	padding: 30px; /* Adjusted padding */
 	background: #fff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+    text-align: center;
 }
 
-.testimonials .content .box .imgBx img
+.testimonials .content .box .imgBx /* imgBx for testimonial image */
 {
-	width: 80px;
+    width: 80px;
 	height: 80px;
 	margin-bottom: 20px;
 	border-radius: 50%;
-	overflow: hidden;
+	overflow: hidden; /* Ensure image stays round */
+}
+
+.testimonials .content .box .imgBx img /* Actual image */
+{
+	width: 100%;
+	height: 100%;
+    object-fit: cover;
 }
 
 .testimonials .content .box .text p
 {
-	color: #666;
+	color: #555; /* Slightly darker than #666 */
 	font-style: italic;
+    line-height: 1.7;
 }
 
-.testimonials .content .box .text h3
+.testimonials .content .box .text h3 /* Testimonial author name */
 {
 	margin-top: 20px;
-	color: #111;
-	font-size: 1em;
-	color: #ff0157;
+	color: #E2725B; /* UPDATED: Was #ff0157 */
+	font-size: 1.1em; /* Slightly larger */
 	font-weight: 600;
 }
 
-
+/* Contact Section */
 .contact
 {
-	background: url(img/bg3.jpg);
+	background: url(img/nepali_contact_bg.jpg) no-repeat center center; /* SUGGESTION: Use a thematic BG image */
 	background-size: cover;
 }
 
 .contactForm
 {
-	padding: 75px 50px;
+	padding: 50px; /* Reduced padding slightly */
 	background: #fff;
-	box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Softer shadow */
 	max-width: 500px;
-	margin-top: 50px;
+	margin: 50px auto 0; /* Center the form if section is full width */
+    border-radius: 8px;
 }
 
 .contactForm h3
 {
 	color: #111;
-	font-size: 1.2em;
+	font-size: 1.3em; /* Slightly larger */
 	margin-bottom: 20px;
-	font-weight: 500;
+	font-weight: 600; /* Bolder */
+    text-align: center;
 }
 
 .contactForm .inputBox
@@ -351,192 +397,280 @@ section
 .contactForm .inputBox textarea
 {
 	width: 100%;
-	border: 1px solid #555;
-	padding: 10px;
+	border: 1px solid #ccc; /* Lighter border */
+	padding: 12px 15px; /* More padding */
 	color: #111;
 	outline: none;
 	font-size: 16px;
 	font-weight: 300;
 	resize: none;
+    border-radius: 4px;
+}
+
+.contactForm .inputBox input:focus,
+.contactForm .inputBox textarea:focus {
+    border-color: #E2725B; /* Highlight with accent color on focus */
 }
 
 .contactForm .inputBox input[type="submit"]
 {
 	font-size: 1em;
 	color: #fff;
-	background: #ff0157;
-	display: inline-block;
+	background: #E2725B; /* UPDATED: Was #ff0157 */
+	display: block; /* Make it block to use max-width or center */
+    width: auto; /* Auto width */
+    min-width: 120px; /* Minimum width */
+	margin: 0 auto; /* Center the button */
 	text-transform: uppercase;
 	text-decoration: none;
 	letter-spacing: 2px;
-	transition: 0.5s;
-	max-width: 100px;
+	transition: 0.5s ease;
 	font-weight: 500;
 	border: none;
 	cursor: pointer;
+    padding: 12px 30px; /* Adjusted padding */
+    border-radius: 4px;
 }
 
+.contactForm .inputBox input[type="submit"]:hover
+{
+    background: #c96552; /* Darker shade on hover */
+    letter-spacing: 3px;
+}
+
+/* Copyright Text */
 .copyrightText
 {
-	padding: 8px 40px;
-	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 15px 40px; /* Increased padding */
+	border-top: 1px solid #e0e0e0; /* Lighter border */
 	text-align: center;
+    background: #f8f8f8; /* Light background for footer */
 }
 
 .copyrightText p
 {
-	color: #333;
+	color: #555; /* Darker text */
+    margin: 0;
 }
 
 .copyrightText a
 {
-	color: #ff0157;
+	color: #E2725B; /* UPDATED: Was #ff0157 */
 	font-weight: 500;
 	text-decoration: none;
+    transition: color 0.3s ease;
+}
+.copyrightText a:hover
+{
+    color: #c96552; /* Darker shade on hover */
 }
 
 
-
-/*-------- Tablet scren ------------*/
+/*-------- Tablet screen ------------*/
 @media screen and (max-width:  991px)
 {
 	header,
 	header.sticky
 	{
-		padding: 10px 20px;
+		padding: 15px 20px; /* Consistent padding */
 	}
 
 	header .navigation
 	{
-		display: none;
+		display: none; /* Initial state for mobile nav trigger */
 	}
 
-	header .navigation.active
+    header .navigation.active /* Mobile navigation when active */
 	{
 		width: 100%;
-		height: calc(100% - 68px);
+		height: 100vh; /* Full viewport height */
 		position: fixed;
-		top: 68px;
+		top: 0; /* Align to top */
 		left: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 		background: #fff;
+        /* Remove calc for height, ensure it covers header too if top is 0 */
+        padding-top: 60px; /* Space for close button or header elements if needed */
 	}
 
 	header .navigation li
 	{
 		margin-left: 0;
+        margin-bottom: 20px; /* Space between nav items in mobile view */
 	}
 
 	header .navigation li a
 	{
-		text-decoration: none;
-		color: #111;
-		font-size: 1.6em;
-		font-weight: 300;
+		/* text-decoration: none; from global */
+		color: #111; /* Always dark on white mobile menu */
+		font-size: 1.8em; /* Larger for touch targets */
+		font-weight: 400; /* Slightly bolder */
 	}
 
-	.menuToggle
+	.menuToggle /* Hamburger icon */
 	{
 		position: relative;
 		width: 40px;
 		height: 40px;
-		background: url(img/menu.png);
+		background-image: url(img/menu_icon_dark.png); /* SUGGESTION: Use a dark icon for light header bg */
 		background-size: 30px;
 		background-repeat: no-repeat;
 		background-position: center;
 		cursor: pointer;
+		z-index: 10001; /* Ensure it's above active nav */
 	}
 
-	.menuToggle.active
+	.menuToggle.active /* Close icon */
 	{
-		background: url(img/close.png);
+		background-image: url(img/close_icon_dark.png); /* SUGGESTION: Use a dark icon */
 		background-size: 25px;
-		background-repeat: no-repeat;
-		background-position: center;
+        /* No filter needed if icons are already dark */
 	}
 
-	header.sticky .menuToggle
+	header.sticky .menuToggle /* Hamburger on sticky header */
 	{
-		filter: invert(1);
+		/* filter: invert(1); Removed, assuming dark icon is used. Adjust if using a light icon that needs inverting on sticky. */
 	}
 
 	section
 	{
-		padding: 20px;
+		padding: 60px 20px; /* Reduced padding for tablet */
 	}
 
 	.banner .content h2
 	{
 		font-size: 3em;
-		color: #fff;
+		/* color: #fff; from general banner style */
 	}
+    .banner .content p {
+        font-size: 0.9em;
+    }
 
-	.row
+	.row /* Stack columns on tablet */
 	{
 		flex-direction: column;
 	}
 
 	.row .col50
 	{
-		width: 100%;
+		width: 100%; /* Full width for columns */
+        margin-bottom: 30px; /* Add space between stacked col50s */
 	}
+    .row .col50:last-child {
+        margin-bottom: 0;
+    }
 
-	.col50 .imgBx
+	.col50 .imgBx /* Image box in a .col50 */
 	{
-		margin-top: 30px;
+		margin-top: 20px; /* Reduced margin */
 	}
 
 	.menu .content
 	{
 		margin-top: 20px;
+        flex-direction: column; /* Stack menu items */
+        align-items: center; /* Center stacked items */
 	}
 
 	.menu .content .box
 	{
-		margin: 10px;
+		margin: 15px 0; /* Adjusted margin for stacked items */
+        width: 90%; /* Wider boxes on tablet */
+        max-width: 400px; /* Max width for very wide tablets */
 	}
 
 	.menu .content .box .imgBx
 	{
-		height: 260px;
+		height: 220px; /* Adjusted height */
 	}
 
-	.title
-	{
-		text-align: center;
-	}
-
-	.titleText
+	.titleText /* Section titles on tablet */
 	{
 		font-size: 1.8em;
-		line-height: 1.5em;
-		margin-bottom: 15px;
-		font-weight: 300;
+		line-height: 1.4em; /* Adjusted line height */
+		margin-bottom: 20px; /* Consistent margin */
+		/* font-weight: 300; from general */
 	}
+    .expert .content .box {
+        width: calc(50% - 30px); /* Two boxes per row */
+        max-width: 250px;
+    }
+    .testimonials .content .box {
+        width: 90%;
+        max-width: 400px;
+    }
 }
-/*-------- Tablet scren ------------*/
+/*-------- Tablet screen ------------*/
 
 /*--------- Mobile screen ----------*/
-@media screen and (max-width: 440px)
+@media screen and (max-width: 600px) /* Slightly larger breakpoint for mobile */
 {
-	header.sticky
+    header, header.sticky {
+        padding: 15px;
+    }
+    header .logo {
+        font-size: 1.8em;
+    }
+    .banner .content h2 {
+        font-size: 2.5em;
+    }
+    .banner .content p {
+        font-size: 0.85em;
+    }
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.9em;
+    }
+    section {
+        padding: 40px 15px;
+    }
+    .titleText {
+        font-size: 1.6em;
+    }
+    .titleText span {
+        font-size: 1.3em; /* Adjust span within titleText */
+    }
+
+	.menu .content .box
 	{
-		padding: 10px 20px;
+		width: 100%; /* Full width on mobile */
+        margin: 10px 0;
 	}
+    .expert .content .box {
+        width: 80%; /* One box per row, centered */
+        margin-left: auto;
+        margin-right: auto;
+    }
+     .expert .content .box .imgBx {
+        height: 250px;
+    }
 
 	.testimonials .content .box
 	{
-		margin: 10px;
+		margin: 10px 0; /* Full width with vertical margin */
 		padding: 20px;
+        width: 100%;
 	}
 
 	.contactForm
 	{
-		padding: 35px 40px;
-		margin-top: 20px;
-		margin-bottom: 30px;
+		padding: 30px 20px; /* Further reduced padding */
+		margin-top: 30px;
+		margin-bottom: 30px; /* Ensure space at bottom */
+        width: 100%; /* Full width form */
 	}
+    .contactForm h3 {
+        font-size: 1.2em;
+    }
+    .contactForm .inputBox input[type="submit"] {
+        width: 100%;
+        max-width: none; /* Allow full width */
+    }
+    .copyrightText {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
 }
