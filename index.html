@@ -1,241 +1,481 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Himalayan Aroma Qatar - Authentic Nepali Cuisine</title>
-	<link rel="stylesheet" href="style.css"> {/* Assuming style.css is in the same directory */}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepali Ghar Qatar - Authentic Nepali Cuisine</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #0779e4;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #ccc;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 400px;
+            background: url('https://via.placeholder.com/1500x700.png?text=Delicious+Nepali+Food+Banner') no-repeat 0 -200px; /* Replace with your restaurant's hero image */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        #hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .social-hero a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px 15px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .social-hero a:hover {
+            background-color: #0779e4;
+            color: #fff;
+        }
+        .social-hero a.whatsapp-hero:hover { background-color: #25D366; }
+        .social-hero a.facebook-hero:hover { background-color: #3b5998; }
+        .social-hero a.tiktok-hero:hover { background-color: #000; } /* TikTok uses various colors, black is common */
+
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Menu Section */
+        #menu .menu-category {
+            margin-bottom: 30px;
+        }
+
+        #menu .menu-category h3 {
+            font-size: 24px;
+            color: #0779e4;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0779e4;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        #menu .menu-item {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #menu .menu-item h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        #menu .menu-item p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        #menu .menu-item .price {
+            float: right;
+            font-weight: bold;
+            color: #0779e4;
+        }
+
+        /* Contact Section */
+        #contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        #contact-info div {
+            flex-basis: 30%;
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px; /* For smaller screens */
+        }
+        
+        #contact-info h4 {
+            color: #0779e4;
+            margin-bottom: 10px;
+        }
+
+        /* Get in Touch Form */
+        #get-in-touch {
+            background: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #get-in-touch label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        #get-in-touch input[type="text"],
+        #get-in-touch input[type="email"],
+        #get-in-touch textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #get-in-touch textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        #get-in-touch button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #0779e4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #get-in-touch button:hover {
+            background: #0056b3;
+        }
+        
+        .whatsapp-contact-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .whatsapp-contact-button:hover {
+            background-color: #128C7E;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-social-links a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 20px; /* Adjust if using icons */
+        }
+        .footer-social-links a:hover {
+            color: #0779e4;
+        }
+
+        #developer-tag {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px){
+            header #branding,
+            header nav,
+            header nav li {
+                float: none;
+                text-align: center;
+                width: 100%;
+            }
+
+            header nav li {
+                padding: 10px 0;
+            }
+
+            #hero h1 {
+                font-size: 36px;
+            }
+            #hero p {
+                font-size: 18px;
+            }
+            .social-hero a {
+                font-size: 16px;
+                padding: 8px 12px;
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            #menu .menu-item .price {
+                float: none;
+                display: block;
+                text-align: left;
+                margin-top: 5px;
+            }
+
+            #contact-info div {
+                flex-basis: 100%; /* Stack contact info blocks */
+                margin-bottom: 20px;
+            }
+
+            .container {
+                width: 95%;
+            }
+        }
+
+    </style>
 </head>
 <body>
-	<header>
-		<a href="#" class="logo">HimalayanAroma<span>.QA</span></a>
-		<div class="menuToggle" onclick="toggleMenu()"></div>
-		<ul class="navigation">
-			<li><a href="#home" onclick="toggleMenu()">Home</a></li>
-			<li><a href="#about" onclick="toggleMenu()">About Us</a></li>
-			<li><a href="#menu" onclick="toggleMenu()">Menu</a></li>
-			<li><a href="#chefs" onclick="toggleMenu()">Our Chefs</a></li>
-			<li><a href="#testimonials" onclick="toggleMenu()">Guest Reviews</a></li>
-			<li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-		</ul>
-	</header>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Nepali Ghar</span> Qatar</h1> <!-- Replace with your Restaurant Name -->
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#hero">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-	<section class="banner" id="home"> {/* Changed id to home to match nav */}
-		<div class="content">
-			<h2>Taste the Peaks of Nepal in Qatar</h2>
-			<p>
-				Welcome to Himalayan Aroma Qatar, where authentic Nepali flavors meet Qatari hospitality. Embark on a culinary journey with our traditional dishes, prepared with the freshest ingredients and a passion for taste.
-			</p>
-			<a href="#menu" class="btn">Explore Our Menu</a>
-		</div>
-	</section>
+    <section id="hero">
+        <h1>Welcome to Nepali Ghar Qatar</h1>
+        <p>Experience the authentic taste of Nepal in the heart of Qatar!</p>
+        <div class="social-hero">
+            <a href="https://wa.me/974XXXXXXXX" target="_blank" class="whatsapp-hero">Order on WhatsApp</a> <!-- Replace XXXXXXXX with your WhatsApp number -->
+            <a href="YOUR_FACEBOOK_LINK" target="_blank" class="facebook-hero">Follow on Facebook</a> <!-- Replace with your Facebook page link -->
+            <a href="YOUR_TIKTOK_LINK" target="_blank" class="tiktok-hero">Watch us on TikTok</a> <!-- Replace with your TikTok profile link -->
+        </div>
+    </section>
 
-	<section class="about" id="about">
-		<div class="row">
-			<div class="col50">
-				<h2 class="titleText"><span>A</span>bout Himalayan Aroma</h2>
-				<p>
-					Nestled in the heart of Qatar, Himalayan Aroma brings the vibrant and diverse culinary heritage of Nepal to your plate. Our story began with a desire to share the warmth of Nepali homes and the rich tapestry of flavors that define our culture. From the bustling streets of Kathmandu to the serene mountain villages, our recipes are passed down through generations.
-					<br><br>
-					We are committed to authenticity, using traditional cooking methods and sourcing the finest spices. Whether you're a long-time lover of Nepali food or new to its delights, we invite you to experience a memorable meal with us.
-				</p>
-			</div>
+    <section id="about-us" class="container">
+        <h2>Discover Our Story</h2>
+        <p>Nestled in the vibrant city of Doha, Nepali Ghar Qatar brings you a culinary journey through the Himalayas. We are passionate about serving traditional Nepali dishes, prepared with fresh ingredients and authentic spices. Join us for a memorable dining experience that feels like home.</p>
+        <p>We are active on social media! Follow our journey, see our delicious dishes, and stay updated with special offers:</p>
+        <div style="text-align:center; margin-top:20px;" class="social-hero">
+             <a href="YOUR_FACEBOOK_LINK" target="_blank" class="facebook-hero">Facebook</a>
+             <a href="https://wa.me/974XXXXXXXX" target="_blank" class="whatsapp-hero">WhatsApp</a>
+             <a href="YOUR_TIKTOK_LINK" target="_blank" class="tiktok-hero">TikTok</a>
+        </div>
+    </section>
 
-			<div class="col50">
-				<div class="imgBx">
-					<img src="img/nepali_restaurant_interior_qatar.jpg" alt="Restaurant Interior or Nepali cultural depiction">
-				</div>
-			</div>
-		</div>
-	</section>
+    <section id="menu" class="container">
+        <h2>Our Menu</h2>
+        
+        <div class="menu-category">
+            <h3>Appetizers</h3>
+            <div class="menu-item">
+                <h4>Momo (Chicken/Veg/Buff) <span class="price">QAR 25</span></h4>
+                <p>Steamed or fried dumplings served with tangy dipping sauce.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Sekuwa (Chicken/Mutton) <span class="price">QAR 30</span></h4>
+                <p>Spicy grilled meat, marinated in traditional Nepali spices.</p>
+            </div>
+            <!-- Add more appetizers here -->
+        </div>
 
-	<section class="menu" id="menu">
-		<div class="title">
-			<h2 class="titleText">Our Signature <span>M</span>enu</h2>
-			<p>
-			    Discover the authentic taste of Nepal with our carefully crafted dishes.
-		    </p>
-		</div>
+        <div class="menu-category">
+            <h3>Main Courses</h3>
+            <div class="menu-item">
+                <h4>Dal Bhat Tarkari (Veg/Chicken/Mutton) <span class="price">QAR 35</span></h4>
+                <p>Traditional Nepali thali set with rice, lentil soup, vegetable curry, and your choice of meat or extra vegetables.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Chowmein (Chicken/Veg/Buff) <span class="price">QAR 28</span></h4>
+                <p>Nepali-style stir-fried noodles with fresh vegetables and your choice of protein.</p>
+            </div>
+             <div class="menu-item">
+                <h4>Thukpa (Chicken/Veg/Buff) <span class="price">QAR 28</span></h4>
+                <p>Hearty noodle soup with vegetables and your choice of protein, perfect for a comforting meal.</p>
+            </div>
+            <!-- Add more main courses here -->
+        </div>
 
-		<div class="content">
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/momo_dumplings.jpg" alt="Momos (Nepali Dumplings)">
-				</div>
-				<div class="text">
-					<h3>Momos (Steamed/Fried)</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/dal_bhat_thali.jpg" alt="Dal Bhat Tarkari">
-				</div>
-				<div class="text">
-					<h3>Dal Bhat Power Set</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/newari_khaja.jpg" alt="Newari Khaja Set">
-				</div>
-				<div class="text">
-					<h3>Newari Khaja Set</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/sel_roti.jpg" alt="Sel Roti">
-				</div>
-				<div class="text">
-					<h3>Sel Roti (Sweet Rice Bread)</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/gundruk_soup.jpg" alt="Gundruk ko Jhol">
-				</div>
-				<div class="text">
-					<h3>Gundruk ko Jhol (Fermented Leaf Soup)</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/chicken_sekuwa.jpg" alt="Chicken Sekuwa">
-				</div>
-				<div class="text">
-					<h3>Chicken Sekuwa (Grilled Skewers)</h3>
-				</div>
-			</div>
-		</div>
-		<div class="title">
-			<a href="#menu" class="btn">View Full Menu</a> {/* You might link this to a more detailed menu page/PDF later */}
-		</div>
-	</section>
+        <div class="menu-category">
+            <h3>Drinks & Desserts</h3>
+            <div class="menu-item">
+                <h4>Nepali Chiya <span class="price">QAR 5</span></h4>
+                <p>Traditional Nepali milk tea with aromatic spices.</p>
+            </div>
+             <div class="menu-item">
+                <h4>Lassi (Sweet/Salted/Mango) <span class="price">QAR 10</span></h4>
+                <p>Refreshing yogurt-based drink.</p>
+            </div>
+            <!-- Add more drinks/desserts here -->
+        </div>
+        <p style="text-align:center; margin-top:20px;"><em>This is a sample menu. Please visit us or contact us for the full menu and current prices.</em></p>
+    </section>
 
-	<section class="expert" id="chefs"> {/* Changed id and content to 'chefs' */}
-		<div class="title">
-			<h2 class="titleText">Our Culinary <span>C</span>hefs</h2>
-			<p>
-				Meet the artisans behind your meal, bringing years of Nepali cooking tradition to Qatar.
-			</p>
-		</div>
-		<div class="content">
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/chef_ramesh.jpg" alt="Chef Ramesh">
-				</div>
-				<div class="text">
-					<h3>Chef Ramesh Bhandari</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/chef_sita.jpg" alt="Chef Sita">
-				</div>
-				<div class="text">
-					<h3>Chef Sita Gurung</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/kitchen_team_nepali.jpg" alt="Nepali Kitchen Team">
-				</div>
-				<div class="text">
-					<h3>Our Passionate Team</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/chef_specializing.jpg" alt="Chef Specializing Dish">
-				</div>
-				<div class="text">
-					<h3>Master of Spices</h3>
-				</div>
-			</div>
-		</div>
-	</section>
+    <section id="contact" class="container">
+        <h2>Contact Us & Visit Us</h2>
 
-	<section class="testimonials" id="testimonials">
-		<div class="title white">
-			<h2 class="titleText">What Our <span>G</span>uests Say</h2>
-			<p>
-				Hear from those who have experienced the Himalayan Aroma in Qatar.
-			</p>
-		</div>
-		<div class="content">
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/guest_ Aisha_qatar.jpg" alt="Aisha Al-Thani">
-				</div>
-				<div class="text">
-					<p>
-						"Absolutely authentic Nepali food! The momos were incredible, and the ambiance transported me to Kathmandu. A must-visit in Doha."
-					</p>
-					<h3>Aisha A.</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/guest_rajesh_nepal.jpg" alt="Rajesh Sharma">
-				</div>
-				<div class="text">
-					<p>
-						"As a Nepali living in Qatar, Himalayan Aroma is my go-to for a taste of home. The Dal Bhat is just like my mother makes. Highly recommended!"
-					</p>
-					<h3>Rajesh S.</h3>
-				</div>
-			</div>
-			<div class="box">
-				<div class="imgBx">
-					<img src="img/guest_mark_expat.jpg" alt="Mark Peterson">
-				</div>
-				<div class="text">
-					<p>
-						"A fantastic discovery! The staff were so friendly, explaining the dishes. The Newari Khaja set was an explosion of flavors. Will be back soon!"
-					</p>
-					<h3>Mark P.</h3>
-				</div>
-			</div>
-		</div>
-	</section>
+        <div id="contact-info">
+            <div>
+                <h4>Our Address</h4>
+                <p>Street Name, Building No., Zone</p> <!-- Replace with your address -->
+                <p>Doha, Qatar</p>
+                <p><a href="YOUR_GOOGLE_MAPS_LINK" target="_blank">View on Google Maps</a></p> <!-- Replace with your Google Maps link -->
+            </div>
+            <div>
+                <h4>Call Us / WhatsApp</h4>
+                <p>Phone: +974 XXXXXXXX</p> <!-- Replace with your phone number -->
+                <p>WhatsApp: +974 XXXXXXXX</p> <!-- Replace with your WhatsApp number -->
+                <a href="https://wa.me/974XXXXXXXX" class="whatsapp-contact-button" target="_blank">Chat on WhatsApp</a>
+            </div>
+            <div>
+                <h4>Email Us</h4>
+                <p>info@nepaligharqatar.com</p> <!-- Replace with your email -->
+            </div>
+        </div>
+        
+        <div id="get-in-touch">
+            <h3>Get in Touch - Send us a Message</h3>
+            <form action="#" method="POST"> <!-- Backend needed for form submission -->
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+            <p style="text-align:center; margin-top:20px;">For quick inquiries or orders, please use WhatsApp!</p>
+        </div>
+    </section>
 
-	<section class="contact" id="contact">
-		<div class="title">
-			<h2 class="titleText"><span>G</span>et In Touch</h2>
-			<p>Visit us or send us a message for reservations and inquiries.</p>
-		</div>
-		<div class="contactForm">
-			<h3>Send Us a Message</h3>
-			<div class="inputBox">
-				<input type="text" placeholder="Your Name" required>
-			</div>
-			<div class="inputBox">
-				<input type="email" placeholder="Your Email" required>
-			</div>
-			<div class="inputBox">
-				<textarea placeholder="Your Message (e.g., reservation for 2, inquiry about an event)" required></textarea>
-			</div>			
-			<div class="inputBox">
-				<input type="submit" value="Send">
-			</div>
-		</div>
-	</section>
+    <footer>
+        <div class="container">
+            <p>Connect with us on Social Media!</p>
+            <div class="footer-social-links">
+                <a href="YOUR_FACEBOOK_LINK" target="_blank">Facebook</a> | <!-- Replace with your Facebook page link -->
+                <a href="https://wa.me/974XXXXXXXX" target="_blank">WhatsApp</a> | <!-- Replace XXXXXXXX with your WhatsApp number -->
+                <a href="YOUR_TIKTOK_LINK" target="_blank">TikTok</a> <!-- Replace with your TikTok profile link -->
+            </div>
+            <p>© 2024 Nepali Ghar Qatar. All Rights Reserved.</p> <!-- Update year and restaurant name if needed -->
+            <p id="developer-tag">Website designed by AI Agent</p> <!-- You can change this -->
+        </div>
+    </footer>
 
-	<div class="copyrightText">
-		<p>Copyright 2024 <a href="#">Himalayan Aroma Qatar</a>. All Rights Reserved.</p>
-	</div>
-
-	<script window.addEventListener('scroll', function(){
-    const header = document.querySelector('header');
-    header.classList.toggle("sticky", window.scrollY > 0);
-});
-
-function toggleMenu()
-{
-    const menuToggle = document.querySelector('.menuToggle');
-    const navigation = document.querySelector('.navigation');
-    menuToggle.classList.toggle('active');
-    navigation.classList.toggle('active');
-}></script>
 </body>
 </html>
+
