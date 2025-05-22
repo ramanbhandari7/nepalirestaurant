@@ -1,676 +1,502 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;800;900&display=swap');
-
-*
-{
-	font-family: 'Poppins', sans-serif; /* Poppins is a great, modern choice */
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	scroll-behavior: smooth;
+/* === Basic Reset & Body Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-p
-{
-	font-weight: 300;
-	color: #111; /* Dark grey for general text, good readability */
-}
-
-/* General Styles */
-section
-{
-	padding: 100px;
-}
-
-.row
-{
-	position: relative;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-}
-
-.row .col50
-{
-	position: relative;
-	width: 48%;
-}
-
-.titleText
-{
-	color: #111;
-	font-size: 2em;
-	font-weight: 300;
-}
-
-.titleText span /* This is where the accent color is used for emphasized first letters */
-{
-	color: #E2725B; /* UPDATED: Was #ff0157 */
-	font-weight: 700;
-	font-size: 1.5em;
-}
-
-.imgBx img /* Ensure images within .imgBx are responsive */
-{
-	max-width: 100%;
-	width: 100%;
-	height: auto; /* Maintain aspect ratio */
-	object-fit: cover; /* Ensures images fill their containers well */
-}
-
-.title
-{
-	width: 100%; /* Ensure title div takes full width for centering */
-	text-align: center;
-	margin-bottom: 30px; /* Added some space below titles */
-}
-
-.title p {
-    color: #555; /* Slightly lighter for subtitle paragraphs */
-}
-
-
-/* Banner Section */
-.banner
-{
-	position: relative;
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: url(img/nepali_banner_bg.jpg); /* SUGGESTION: Use a thematic Nepali/Qatari BG image */
-	background-size: cover;
-	background-position: center; /* Ensure the image is centered */
-}
-
-.banner .content
-{
-	max-width: 900px;
-	text-align: center;
-}
-
-.banner .content h2
-{
-	font-size: 5em;
-	color: #fff;
-	text-transform: capitalize;
-}
-
-.banner .content p
-{
-	font-size: 1em;
-	color: #fff;
-}
-
-.btn
-{
-	font-size: 1em;
-	color: #fff;
-	background: #E2725B; /* UPDATED: Was #ff0157 */
-	display: inline-block;
-	padding: 10px 30px;
-	margin-top: 20px;
-	text-transform: uppercase;
-	text-decoration: none;
-	letter-spacing: 2px;
-	transition: 0.5s ease; /* Smoother transition */
-    border-radius: 4px; /* Slightly rounded corners */
-}
-
-.btn:hover
-{
-	letter-spacing: 4px; /* Slightly reduced hover effect for subtlety */
-    background: #c96552; /* Darker shade on hover */
-}
-
-/* Header & Navigation */
-header
-{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 40px 100px; /* Original padding */
-	z-index: 10000;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	transition: 0.5s ease;
-}
-
-header.sticky
-{
-	background: #fff;
-	padding: 15px 100px; /* Adjusted padding for sticky */
-	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
-}
-
-header .logo
-{
-	color: #fff;
-	font-weight: 700;
-	font-size: 2em;
-	text-decoration: none;
-}
-
-header.sticky .logo
-{
-	color: #111; /* Logo color changes on sticky header */
-}
-
-header .logo span /* Accent color for part of the logo */
-{
-	color: #E2725B; /* UPDATED: Was #ff0157 */
-}
-
-header .navigation
-{
-	display: flex;
-	position: relative; /* For potential dropdowns if added later */
-}
-
-header .navigation li
-{
-	list-style: none;
-	margin-left: 30px;
-}
-
-header .navigation li a
-{
-	text-decoration: none;
-	color: #fff;
-	font-weight: 400; /* Changed from 300 to 400 for slightly better visibility */
-    transition: color 0.3s ease;
-}
-
-header.sticky .navigation li a
-{
-	color: #111;
-}
-
-header .navigation li a:hover
-{
-	color: #E2725B; /* UPDATED: Was #ff0157 */
-}
-
-/* About Us Section - (No specific color changes, uses general styles) */
-.about .row .col50 p {
-    line-height: 1.8; /* Improved readability for longer text blocks */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
     color: #333;
+    /* Add padding-top if header is fixed and opaque to prevent content overlap.
+       The JS adds 'sticky' class which makes header fixed.
+       A common practice is to have the header height fixed and add that as padding-top to body
+       OR ensure banner section has enough top padding/margin when header is sticky.
+       For simplicity, we'll ensure the banner section has enough padding. */
 }
 
-/* Menu Section */
-.menu .content
-{
-	display: flex;
-	justify-content: center;
-	flex-direction: row; /* Changed from row-reverse, but this is a stylistic choice */
-	flex-wrap: wrap;
-	margin-top: 40px;
+/* === Header Styles === */
+header {
+    width: 100%;
+    position: fixed; /* Changed to fixed for consistent sticky behavior from the start */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* High z-index to stay on top */
+    display: flex;
+    justify-content: space-between; /* Pushes logo (if it were on left) and nav/toggle apart */
+    align-items: center;
+    padding: 15px 30px; /* Default padding */
+    background-color: transparent; /* Initially transparent */
+    transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
 }
 
-.menu .content .box
-{
-	width: 340px;
-	margin: 20px;
-	border: 1px solid #eee; /* Lighter border than 15px solid #fff */
-	box-shadow: 0 5px 25px rgba(0,0,0,0.05); /* Softer shadow */
-    background: #fff; /* Ensure box has a background */
-    border-radius: 8px; /* Rounded corners for menu boxes */
-    overflow: hidden; /* To contain the image within rounded corners */
+header.sticky {
+    background-color: #ffffff; /* White background when sticky */
+    padding: 10px 30px; /* Slightly reduced padding when sticky */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for sticky header */
 }
 
-.menu .content .box .imgBx
-{
-	position: relative;
-	width: 100%;
-	height: 250px; /* Adjusted height slightly */
+/* === Logo Styles === */
+/* The logo is an <a> tag with class "logo" */
+.logo {
+    /* "HimalayanAroma" part will be hidden */
+    font-size: 0; /* This hides the text node "HimalayanAroma" */
+    line-height: 0; /* Prevents the hidden text from taking up space */
+    text-decoration: none;
+    position: absolute; /* Positioned relative to the header */
+    top: 50%;
+    right: 30px; /* Position to the right */
+    transform: translateY(-50%); /* Vertically center */
+    z-index: 1001; /* Ensures logo is above other items in header if overlap occurs */
 }
 
-.menu .content .box .imgBx img
-{
-	/* width: 100%; height: 100% is fine from .imgBx img global rule */
-	object-fit: cover;
+.logo span {
+    /* This styles the ".QA" part */
+    font-family: 'Arial Black', Gadget, sans-serif; /* Bold, impactful font */
+    font-size: 28px; /* Adjust size as needed */
+    font-weight: 900; /* Equivalent to bold or extra-bold */
+    color: #D93025;  /* A strong red color, like in the image */
+    display: inline-block; /* Allows proper rendering and spacing */
+    line-height: 1; /* Normal line height for the visible text */
+    vertical-align: middle; /* Helps with centering if needed */
 }
 
-.menu .content .box .text
-{
-	padding: 20px; /* More padding */
-    text-align: center;
+header.sticky .logo span {
+    color: #D93025; /* Keep logo color consistent when sticky, or change if desired */
 }
 
-.menu .content .box .text h3
-{
-	font-weight: 600; /* Bolder heading for menu items */
-	color: #333; /* Darker color for menu item names */
-    margin: 0; /* Remove default margin */
+/* === Navigation Menu & Toggle === */
+.menuToggle {
+    display: none; /* Hidden by default on larger screens */
+    width: 30px;
+    height: 22px; /* Typical burger icon height */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 30 22" xmlns="http://www.w3.org/2000/svg"><path stroke="rgba(0, 0, 0, 0.7)" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M0 1h30M0 11h30M0 21h30"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    z-index: 1002; /* Above logo if they overlap on small screens */
 }
 
-/* Expert/Chefs Section */
-.expert .content /* .expert is now .chefs in HTML, adjust class name if needed */
-{
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	flex-direction: row; /* Explicitly set, default is row */
-	margin-top: 40px;
+header.sticky .menuToggle {
+    /* Adjust if burger icon color needs to change on sticky header */
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 30 22" xmlns="http://www.w3.org/2000/svg"><path stroke="rgba(0, 0, 0, 0.9)" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M0 1h30M0 11h30M0 21h30"/></svg>');
 }
 
-.expert .content .box
-{
-	width: 250px;
-	margin: 15px;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+
+.menuToggle.active {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path stroke="rgba(0, 0, 0, 0.7)" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M2 2l22 22M2 24L24 2"/></svg>'); /* X icon */
+}
+header.sticky .menuToggle.active {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path stroke="rgba(0, 0, 0, 0.9)" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="M2 2l22 22M2 24L24 2"/></svg>'); /* X icon */
 }
 
-.expert .content .box .imgBx
-{
-	position: relative;
-	width: 100%;
-	height: 300px;
+
+.navigation {
+    list-style: none;
+    display: flex; /* Horizontal layout for desktop */
+    align-items: center; /* Vertically align items if header has more height */
+    position: relative; /* For potential absolute positioning of submenus if any */
+    margin-right: auto; /* Pushes navigation to the left, making space for the right-aligned logo */
+    padding-left: 0; /* Remove default ul padding */
 }
 
-.expert .content .box .imgBx img
-{
-	/* width: 100%; height: 100% is fine from .imgBx img global rule */
-	object-fit: cover;
+.navigation li {
+    margin-left: 30px; /* Spacing between nav items */
 }
 
-.expert .content .box .text
-{
-	padding: 15px; /* Consistent padding */
-    text-align: center;
+.navigation li:first-child {
+    margin-left: 0;
 }
 
-.expert .content .box .text h3
-{
-	font-weight: 600; /* Bolder for names */
-	color: #333;
-    margin: 0;
-}
-
-/* Testimonials Section */
-.testimonials
-{
-	background: url(img/nepali_testimonial_bg.jpg) no-repeat center center; /* SUGGESTION: Use a thematic BG image */
-	background-size: cover;
-}
-
-.testimonials .title.white .titleText, /* More specific selector for white text */
-.testimonials .title.white p
-{
-	color: #fff;
-}
-
-.testimonials .content
-{
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	flex-direction: row;
-	margin-top: 40px;
-}
-
-.testimonials .content .box
-{
-	width: 340px;
-	margin: 20px;
-	padding: 30px; /* Adjusted padding */
-	background: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-    border-radius: 8px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-    text-align: center;
-}
-
-.testimonials .content .box .imgBx /* imgBx for testimonial image */
-{
-    width: 80px;
-	height: 80px;
-	margin-bottom: 20px;
-	border-radius: 50%;
-	overflow: hidden; /* Ensure image stays round */
-}
-
-.testimonials .content .box .imgBx img /* Actual image */
-{
-	width: 100%;
-	height: 100%;
-    object-fit: cover;
-}
-
-.testimonials .content .box .text p
-{
-	color: #555; /* Slightly darker than #666 */
-	font-style: italic;
-    line-height: 1.7;
-}
-
-.testimonials .content .box .text h3 /* Testimonial author name */
-{
-	margin-top: 20px;
-	color: #E2725B; /* UPDATED: Was #ff0157 */
-	font-size: 1.1em; /* Slightly larger */
-	font-weight: 600;
-}
-
-/* Contact Section */
-.contact
-{
-	background: url(img/nepali_contact_bg.jpg) no-repeat center center; /* SUGGESTION: Use a thematic BG image */
-	background-size: cover;
-}
-
-.contactForm
-{
-	padding: 50px; /* Reduced padding slightly */
-	background: #fff;
-	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Softer shadow */
-	max-width: 500px;
-	margin: 50px auto 0; /* Center the form if section is full width */
-    border-radius: 8px;
-}
-
-.contactForm h3
-{
-	color: #111;
-	font-size: 1.3em; /* Slightly larger */
-	margin-bottom: 20px;
-	font-weight: 600; /* Bolder */
-    text-align: center;
-}
-
-.contactForm .inputBox
-{
-	position: relative;
-	width: 100%;
-	margin-bottom: 20px;
-}
-
-.contactForm .inputBox input,
-.contactForm .inputBox textarea
-{
-	width: 100%;
-	border: 1px solid #ccc; /* Lighter border */
-	padding: 12px 15px; /* More padding */
-	color: #111;
-	outline: none;
-	font-size: 16px;
-	font-weight: 300;
-	resize: none;
-    border-radius: 4px;
-}
-
-.contactForm .inputBox input:focus,
-.contactForm .inputBox textarea:focus {
-    border-color: #E2725B; /* Highlight with accent color on focus */
-}
-
-.contactForm .inputBox input[type="submit"]
-{
-	font-size: 1em;
-	color: #fff;
-	background: #E2725B; /* UPDATED: Was #ff0157 */
-	display: block; /* Make it block to use max-width or center */
-    width: auto; /* Auto width */
-    min-width: 120px; /* Minimum width */
-	margin: 0 auto; /* Center the button */
-	text-transform: uppercase;
-	text-decoration: none;
-	letter-spacing: 2px;
-	transition: 0.5s ease;
-	font-weight: 500;
-	border: none;
-	cursor: pointer;
-    padding: 12px 30px; /* Adjusted padding */
-    border-radius: 4px;
-}
-
-.contactForm .inputBox input[type="submit"]:hover
-{
-    background: #c96552; /* Darker shade on hover */
-    letter-spacing: 3px;
-}
-
-/* Copyright Text */
-.copyrightText
-{
-	padding: 15px 40px; /* Increased padding */
-	border-top: 1px solid #e0e0e0; /* Lighter border */
-	text-align: center;
-    background: #f8f8f8; /* Light background for footer */
-}
-
-.copyrightText p
-{
-	color: #555; /* Darker text */
-    margin: 0;
-}
-
-.copyrightText a
-{
-	color: #E2725B; /* UPDATED: Was #ff0157 */
-	font-weight: 500;
-	text-decoration: none;
+.navigation li a {
+    text-decoration: none;
+    color: #555; /* Dark grey for nav links */
+    font-weight: 600;
+    font-size: 16px;
     transition: color 0.3s ease;
-}
-.copyrightText a:hover
-{
-    color: #c96552; /* Darker shade on hover */
+    padding: 5px 0; /* Add some padding for easier clicking */
 }
 
+.navigation li a:hover {
+    color: #D93025; /* Red hover for links */
+}
 
-/*-------- Tablet screen ------------*/
-@media screen and (max-width:  991px)
-{
-	header,
-	header.sticky
-	{
-		padding: 15px 20px; /* Consistent padding */
-	}
+header.sticky .navigation li a {
+    color: #333; /* Ensure links are visible on white sticky header */
+}
 
-	header .navigation
-	{
-		display: none; /* Initial state for mobile nav trigger */
-	}
+header.sticky .navigation li a:hover {
+    color: #D93025; /* Red hover on sticky */
+}
 
-    header .navigation.active /* Mobile navigation when active */
-	{
-		width: 100%;
-		height: 100vh; /* Full viewport height */
-		position: fixed;
-		top: 0; /* Align to top */
-		left: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		background: #fff;
-        /* Remove calc for height, ensure it covers header too if top is 0 */
-        padding-top: 60px; /* Space for close button or header elements if needed */
-	}
 
-	header .navigation li
-	{
-		margin-left: 0;
-        margin-bottom: 20px; /* Space between nav items in mobile view */
-	}
+/* === Sections & General Content === */
+section {
+    padding: 80px 30px; /* Standard padding for sections */
+    min-height: 60vh; /* Give some height to sections for scroll testing */
+}
+section:first-of-type { /* e.g. Banner */
+    padding-top: 120px; /* Extra top padding for the first section to account for fixed header */
+}
 
-	header .navigation li a
-	{
-		/* text-decoration: none; from global */
-		color: #111; /* Always dark on white mobile menu */
-		font-size: 1.8em; /* Larger for touch targets */
-		font-weight: 400; /* Slightly bolder */
-	}
+.titleText {
+    font-size: 2.2em;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
-	.menuToggle /* Hamburger icon */
-	{
-		position: relative;
-		width: 40px;
-		height: 40px;
-		background-image: url(img/menu_icon_dark.png); /* SUGGESTION: Use a dark icon for light header bg */
-		background-size: 30px;
-		background-repeat: no-repeat;
-		background-position: center;
-		cursor: pointer;
-		z-index: 10001; /* Ensure it's above active nav */
-	}
+.titleText span { /* For the highlighted first letter */
+    color: #D93025; /* Red color for the span */
+    font-size: 1.5em; /* Make the spanned letter larger */
+    font-weight: 900;
+}
 
-	.menuToggle.active /* Close icon */
-	{
-		background-image: url(img/close_icon_dark.png); /* SUGGESTION: Use a dark icon */
-		background-size: 25px;
-        /* No filter needed if icons are already dark */
-	}
+section .title p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: #666;
+}
 
-	header.sticky .menuToggle /* Hamburger on sticky header */
-	{
-		/* filter: invert(1); Removed, assuming dark icon is used. Adjust if using a light icon that needs inverting on sticky. */
-	}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
 
-	section
-	{
-		padding: 60px 20px; /* Reduced padding for tablet */
-	}
+.col50 {
+    width: 100%; /* Default for mobile */
+    margin-bottom: 20px;
+}
 
-	.banner .content h2
-	{
-		font-size: 3em;
-		/* color: #fff; from general banner style */
-	}
-    .banner .content p {
-        font-size: 0.9em;
-    }
-
-	.row /* Stack columns on tablet */
-	{
-		flex-direction: column;
-	}
-
-	.row .col50
-	{
-		width: 100%; /* Full width for columns */
-        margin-bottom: 30px; /* Add space between stacked col50s */
-	}
-    .row .col50:last-child {
+@media (min-width: 769px) {
+    .col50 {
+        width: 48%; /* Two columns on larger screens */
         margin-bottom: 0;
     }
-
-	.col50 .imgBx /* Image box in a .col50 */
-	{
-		margin-top: 20px; /* Reduced margin */
-	}
-
-	.menu .content
-	{
-		margin-top: 20px;
-        flex-direction: column; /* Stack menu items */
-        align-items: center; /* Center stacked items */
-	}
-
-	.menu .content .box
-	{
-		margin: 15px 0; /* Adjusted margin for stacked items */
-        width: 90%; /* Wider boxes on tablet */
-        max-width: 400px; /* Max width for very wide tablets */
-	}
-
-	.menu .content .box .imgBx
-	{
-		height: 220px; /* Adjusted height */
-	}
-
-	.titleText /* Section titles on tablet */
-	{
-		font-size: 1.8em;
-		line-height: 1.4em; /* Adjusted line height */
-		margin-bottom: 20px; /* Consistent margin */
-		/* font-weight: 300; from general */
-	}
-    .expert .content .box {
-        width: calc(50% - 30px); /* Two boxes per row */
-        max-width: 250px;
-    }
-    .testimonials .content .box {
-        width: 90%;
-        max-width: 400px;
-    }
 }
-/*-------- Tablet screen ------------*/
 
-/*--------- Mobile screen ----------*/
-@media screen and (max-width: 600px) /* Slightly larger breakpoint for mobile */
-{
-    header, header.sticky {
-        padding: 15px;
+.imgBx {
+    width: 100%;
+}
+
+.imgBx img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+
+/* === Banner Section === */
+.banner {
+    background: #f4f4f4 url('img/banner_background.jpg') no-repeat center center/cover; /* Add a placeholder or actual image */
+    color: #333; /* Text color for banner, adjust if background is dark */
+    text-align: center;
+}
+.banner h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #222; /* Darker text for better contrast on light background */
+}
+.banner p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #444;
+}
+.banner .btn {
+    background-color: #E85A4F; /* Coral/orangey-red from image */
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.banner .btn:hover {
+    background-color: #d7493f; /* Darker shade on hover */
+    transform: translateY(-2px);
+}
+
+/* === Menu, Chefs, Testimonials Box Layout === */
+.menu .content,
+.expert .content, /* 'expert' is used for Chefs section in HTML */
+.testimonials .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center boxes if they don't fill the row */
+    gap: 25px; /* Space between boxes */
+    margin-top: 30px;
+}
+
+.menu .box,
+.expert .box,
+.testimonials .box {
+    width: 100%; /* Full width on mobile */
+    max-width: 320px; /* Max width for each box */
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu .box:hover,
+.expert .box:hover,
+.testimonials .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+
+.menu .box .imgBx img,
+.expert .box .imgBx img,
+.testimonials .box .imgBx img {
+    border-radius: 0; /* Remove radius if image is flush with box top */
+    box-shadow: none; /* Remove shadow from image if box has it */
+    height: 200px; /* Fixed height for images in boxes */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.menu .box .text,
+.expert .box .text,
+.testimonials .box .text {
+    padding: 15px;
+    text-align: center;
+}
+
+.menu .box .text h3,
+.expert .box .text h3,
+.testimonials .box .text h3 {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 5px;
+}
+.testimonials .box .text p {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+.testimonials .box .text h3 { /* Guest name */
+    font-size: 1.1em;
+    font-style: normal;
+    color: #D93025;
+}
+
+.menu .title .btn { /* View Full Menu button */
+    background-color: #5cb85c; /* Green color for this button */
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+.menu .title .btn:hover {
+    background-color: #4cae4c;
+    transform: translateY(-2px);
+}
+
+
+/* Testimonials section specific title color */
+.testimonials .title.white .titleText,
+.testimonials .title.white p {
+    color: #fff; /* White text for title if on dark background */
+}
+.testimonials .title.white .titleText span {
+    color: #ffd700; /* Example: gold color for span on dark background */
+}
+/* If testimonials section has a dark background image/color: */
+.testimonials {
+    background: #333 url('img/testimonial_background.jpg') no-repeat center center/cover; /* Add a dark background */
+}
+
+
+/* === Contact Section === */
+.contact {
+    background-color: #f9f9f9;
+}
+.contactForm {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 25px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+.contactForm h3 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+.inputBox {
+    margin-bottom: 20px;
+}
+.inputBox input[type="text"],
+.inputBox input[type="email"],
+.inputBox textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+}
+.inputBox textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+.inputBox input[type="submit"] {
+    background-color: #D93025;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto; /* Or 100% if you want full width */
+    display: inline-block;
+}
+.inputBox input[type="submit"]:hover {
+    background-color: #b8241c;
+}
+
+/* === Copyright Footer === */
+.copyrightText {
+    padding: 20px;
+    text-align: center;
+    background-color: #222;
+    color: #aaa;
+    font-size: 0.9em;
+}
+.copyrightText a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.copyrightText a:hover {
+    text-decoration: underline;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 15px; /* Reduced padding for mobile header */
+        justify-content: flex-end; /* Align menuToggle to the right */
     }
-    header .logo {
+    header.sticky {
+        padding: 8px 15px;
+    }
+
+    .logo {
+        right: 60px; /* Adjust logo position to make space for menu toggle on its right */
+                       /* Or move it to the left if menu toggle is on the right */
+        /* Example if logo on left and toggle on right:
+        left: 15px;
+        right: auto;
+        */
+    }
+    .logo span {
+        font-size: 24px; /* Slightly smaller logo on mobile */
+    }
+
+    .menuToggle {
+        display: block; /* Show burger icon on mobile */
+        position: relative; /* Ensure it's interactable, adjust if needed */
+        /* If logo is on right, toggle needs to be placed carefully */
+        /* For this setup (logo right, nav left), toggle goes left of logo */
+    }
+
+    .navigation {
+        display: none; /* Hidden by default on mobile */
+        position: absolute;
+        top: 100%; /* Position below the header (relative to header height) */
+        left: 0;
+        width: 100%;
+        background-color: #fff; /* Solid background for dropdown */
+        flex-direction: column; /* Stack links vertically */
+        padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
+    }
+
+    .navigation.active {
+        display: flex; /* Show when active */
+    }
+
+    .navigation li {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .navigation li a {
+        display: block;
+        padding: 12px 20px;
+        text-align: center;
+        border-bottom: 1px solid #f0f0f0;
+        color: #333; /* Ensure links are dark on white background */
+    }
+    .navigation li:last-child a {
+        border-bottom: none;
+    }
+    .navigation li a:hover {
+        background-color: #f9f9f9;
+        color: #D93025;
+    }
+
+    section {
+        padding: 60px 15px;
+    }
+    section:first-of-type { /* Banner */
+        padding-top: 100px; /* Adjust for mobile header */
+    }
+
+    .titleText {
         font-size: 1.8em;
     }
-    .banner .content h2 {
-        font-size: 2.5em;
-    }
-    .banner .content p {
-        font-size: 0.85em;
-    }
-    .btn {
-        padding: 8px 20px;
-        font-size: 0.9em;
-    }
-    section {
-        padding: 40px 15px;
-    }
-    .titleText {
-        font-size: 1.6em;
-    }
     .titleText span {
-        font-size: 1.3em; /* Adjust span within titleText */
+        font-size: 1.3em;
     }
 
-	.menu .content .box
-	{
-		width: 100%; /* Full width on mobile */
-        margin: 10px 0;
-	}
-    .expert .content .box {
-        width: 80%; /* One box per row, centered */
-        margin-left: auto;
-        margin-right: auto;
+    .banner h2 {
+        font-size: 2.2em;
     }
-     .expert .content .box .imgBx {
-        height: 250px;
+    .banner p {
+        font-size: 1em;
     }
-
-	.testimonials .content .box
-	{
-		margin: 10px 0; /* Full width with vertical margin */
-		padding: 20px;
-        width: 100%;
-	}
-
-	.contactForm
-	{
-		padding: 30px 20px; /* Further reduced padding */
-		margin-top: 30px;
-		margin-bottom: 30px; /* Ensure space at bottom */
-        width: 100%; /* Full width form */
-	}
-    .contactForm h3 {
-        font-size: 1.2em;
-    }
-    .contactForm .inputBox input[type="submit"] {
-        width: 100%;
-        max-width: none; /* Allow full width */
-    }
-    .copyrightText {
-        padding: 10px 15px;
+    .banner .btn {
+        padding: 12px 25px;
         font-size: 0.9em;
+    }
+
+    .menu .box,
+    .expert .box,
+    .testimonials .box {
+        max-width: 100%; /* Allow boxes to take full width if needed on very small screens */
     }
 }
